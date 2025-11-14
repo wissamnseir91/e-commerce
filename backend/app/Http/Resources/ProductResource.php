@@ -26,7 +26,7 @@ class ProductResource extends JsonResource
             'image' => $this->image 
                 ? (filter_var($this->image, FILTER_VALIDATE_URL) 
                     ? $this->image 
-                    : url('storage/' . $this->image))
+                    : Storage::disk('public')->url($this->image))
                 : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
