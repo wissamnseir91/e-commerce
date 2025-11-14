@@ -26,15 +26,15 @@ class ProductFactory extends Factory
     {
         // Use placeholder image service for seeded products
         // Using picsum.photos for random images (400x300 is a good product image size)
-        $imageUrl = 'https://picsum.photos/400/300?random=' . $this->fake()->numberBetween(1, 1000);
+        $imageUrl = 'https://picsum.photos/400/300?random=' . fake()->numberBetween(1, 1000);
         
         return [
-            'name' => $this->fake()->words(3, true),
-            'price' => $this->fake()->randomFloat(2, 9.99, 999.99),
-            'category' => $this->fake()->randomElement(['Electronics', 'Clothing', 'Books', 'Home & Garden', 'Sports', 'Toys', 'Food & Beverages', 'Health & Beauty']),
-            'stock' => $this->fake()->numberBetween(0, 100),
-            'description' => $this->fake()->optional()->paragraph(),
-            'sku' => $this->fake()->unique()->bothify('SKU-####-???'),
+            'name' => fake()->words(3, true),
+            'price' => fake()->randomFloat(2, 9.99, 999.99),
+            'category' => fake()->randomElement(['Electronics', 'Clothing', 'Books', 'Home & Garden', 'Sports', 'Toys', 'Food & Beverages', 'Health & Beauty']),
+            'stock' => fake()->numberBetween(0, 100),
+            'description' => fake()->optional()->paragraph(),
+            'sku' => fake()->unique()->bothify('SKU-####-???'),
             'image' => $imageUrl, // Store as URL for seeded products
         ];
     }
